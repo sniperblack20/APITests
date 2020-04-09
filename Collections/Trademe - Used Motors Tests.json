@@ -23,7 +23,10 @@
 									"",
 									"for (i = 0; i < brandCount; i++) {",
 									"  console.log(\"Car Maker name: \" + jsonData.Subcategories[i].Name);",
-									"}"
+									"}",
+									"pm.test(\"Car brands returned should be greater than 0\", function () {",
+									"    pm.expect(brandCount).to.be.above(0);",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -130,7 +133,10 @@
 									"} else {",
 									"    console.log(\"Car not found!\");",
 									"}",
-									""
+									"",
+									"pm.test(\"Car brand \" + usedCarBrand + \" should exist\", function () {",
+									"    pm.expect(carBrandExits).to.eql(true);",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -244,7 +250,10 @@
 									"} else {",
 									"    console.log(\"Car not found!\");",
 									"}",
-									""
+									"",
+									"pm.test(\"Car brand \" + usedCarBrand + \" should not exist\", function () {",
+									"    pm.expect(carBrandExits).to.eql(false);",
+									"});"
 								],
 								"type": "text/javascript"
 							}
