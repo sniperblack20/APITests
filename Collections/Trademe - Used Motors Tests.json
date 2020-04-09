@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "f463fb5b-329b-49e0-be31-b1f39108c044",
+		"name": "Trademe - Used Motors Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Motors",
+			"item": [
+				{
+					"name": "Return Used Cars Brands",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "662b7833-15f9-4dae-8ada-b1a28b75aff3",
+								"exec": [
+									"let jsonData = pm.response.json();",
+									"let brandCount = jsonData.Subcategories.length;",
+									"",
+									"console.log(\"Subcategories (maker) count = \" + brandCount );",
+									"",
+									"for (i = 0; i < brandCount; i++) {",
+									"  console.log(\"Car Maker name: \" + jsonData.Subcategories[i].Name);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth1",
+							"oauth1": [
+								{
+									"key": "tokenSecret",
+									"value": "{{tokenSecret}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "consumerSecret",
+									"value": "{{consumerSecret}}",
+									"type": "string"
+								},
+								{
+									"key": "consumerKey",
+									"value": "{{consumerKey}}",
+									"type": "string"
+								},
+								{
+									"key": "addParamsToHeader",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "signatureMethod",
+									"value": "HMAC-SHA1",
+									"type": "string"
+								},
+								{
+									"key": "version",
+									"value": "1.0",
+									"type": "string"
+								},
+								{
+									"key": "addEmptyParamsToSign",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.{{base}}/v1/Categories/UsedCars.json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"{{base}}"
+							],
+							"path": [
+								"v1",
+								"Categories",
+								"UsedCars.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return Used Cars Brands With number of listings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "662b7833-15f9-4dae-8ada-b1a28b75aff3",
+								"exec": [
+									"let jsonData = pm.response.json();",
+									"let brandCount = jsonData.Subcategories.length;",
+									"",
+									"console.log(\"Subcategories (maker) count = \" + brandCount );",
+									"",
+									"let usedCarBrand = \"Kia\";",
+									"let foundID = 0;",
+									"let carBrandExists = true;",
+									"",
+									"for (i = 0; i < brandCount; i++) {",
+									"  if (jsonData.Subcategories[i].Name == usedCarBrand) {",
+									"      foundID = i;",
+									"      carBrandExits = true;",
+									"      break;",
+									"  } else",
+									"  carBrandExits = false;",
+									"}",
+									"console.log(\"Car Brand: \" + usedCarBrand);",
+									"if (carBrandExits === true) {",
+									"    console.log(\"Found in listings: \" + jsonData.Subcategories[foundID].Count);",
+									"} else {",
+									"    console.log(\"Car not found!\");",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth1",
+							"oauth1": [
+								{
+									"key": "tokenSecret",
+									"value": "{{tokenSecret}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "consumerSecret",
+									"value": "{{consumerSecret}}",
+									"type": "string"
+								},
+								{
+									"key": "consumerKey",
+									"value": "{{consumerKey}}",
+									"type": "string"
+								},
+								{
+									"key": "addParamsToHeader",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "signatureMethod",
+									"value": "HMAC-SHA1",
+									"type": "string"
+								},
+								{
+									"key": "version",
+									"value": "1.0",
+									"type": "string"
+								},
+								{
+									"key": "addEmptyParamsToSign",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.{{base}}/v1/Categories/UsedCars.json?with_counts=true",
+							"protocol": "https",
+							"host": [
+								"api",
+								"{{base}}"
+							],
+							"path": [
+								"v1",
+								"Categories",
+								"UsedCars.json"
+							],
+							"query": [
+								{
+									"key": "with_counts",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check a certain brand is not listed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "662b7833-15f9-4dae-8ada-b1a28b75aff3",
+								"exec": [
+									"let jsonData = pm.response.json();",
+									"let brandCount = jsonData.Subcategories.length;",
+									"",
+									"console.log(\"Subcategories (maker) count = \" + brandCount );",
+									"",
+									"let usedCarBrand = \"Hispano Suiza\";",
+									"let foundID = 0;",
+									"let carBrandExists = true;",
+									"",
+									"for (i = 0; i < brandCount; i++) {",
+									"  if (jsonData.Subcategories[i].Name == usedCarBrand) {",
+									"      foundID = i;",
+									"      carBrandExits = true;",
+									"      break;",
+									"  } else",
+									"  carBrandExits = false;",
+									"}",
+									"",
+									"console.log(\"Car Brand: \" + usedCarBrand);",
+									"if (carBrandExits === true) {",
+									"    console.log(\"Found in listings: \" + jsonData.Subcategories[foundID].Count);",
+									"} else {",
+									"    console.log(\"Car not found!\");",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth1",
+							"oauth1": [
+								{
+									"key": "tokenSecret",
+									"value": "{{tokenSecret}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								},
+								{
+									"key": "consumerSecret",
+									"value": "{{consumerSecret}}",
+									"type": "string"
+								},
+								{
+									"key": "consumerKey",
+									"value": "{{consumerKey}}",
+									"type": "string"
+								},
+								{
+									"key": "addParamsToHeader",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "signatureMethod",
+									"value": "HMAC-SHA1",
+									"type": "string"
+								},
+								{
+									"key": "version",
+									"value": "1.0",
+									"type": "string"
+								},
+								{
+									"key": "addEmptyParamsToSign",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.{{base}}/v1/Categories/UsedCars.json?with_counts=true",
+							"protocol": "https",
+							"host": [
+								"api",
+								"{{base}}"
+							],
+							"path": [
+								"v1",
+								"Categories",
+								"UsedCars.json"
+							],
+							"query": [
+								{
+									"key": "with_counts",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
