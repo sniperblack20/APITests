@@ -34,49 +34,7 @@
 					],
 					"request": {
 						"auth": {
-							"type": "oauth1",
-							"oauth1": [
-								{
-									"key": "tokenSecret",
-									"value": "{{tokenSecret}}",
-									"type": "string"
-								},
-								{
-									"key": "token",
-									"value": "{{accessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "consumerSecret",
-									"value": "{{consumerSecret}}",
-									"type": "string"
-								},
-								{
-									"key": "consumerKey",
-									"value": "{{consumerKey}}",
-									"type": "string"
-								},
-								{
-									"key": "addParamsToHeader",
-									"value": true,
-									"type": "boolean"
-								},
-								{
-									"key": "signatureMethod",
-									"value": "HMAC-SHA1",
-									"type": "string"
-								},
-								{
-									"key": "version",
-									"value": "1.0",
-									"type": "string"
-								},
-								{
-									"key": "addEmptyParamsToSign",
-									"value": false,
-									"type": "boolean"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [
@@ -144,49 +102,7 @@
 					],
 					"request": {
 						"auth": {
-							"type": "oauth1",
-							"oauth1": [
-								{
-									"key": "tokenSecret",
-									"value": "{{tokenSecret}}",
-									"type": "string"
-								},
-								{
-									"key": "token",
-									"value": "{{accessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "consumerSecret",
-									"value": "{{consumerSecret}}",
-									"type": "string"
-								},
-								{
-									"key": "consumerKey",
-									"value": "{{consumerKey}}",
-									"type": "string"
-								},
-								{
-									"key": "addParamsToHeader",
-									"value": true,
-									"type": "boolean"
-								},
-								{
-									"key": "signatureMethod",
-									"value": "HMAC-SHA1",
-									"type": "string"
-								},
-								{
-									"key": "version",
-									"value": "1.0",
-									"type": "string"
-								},
-								{
-									"key": "addEmptyParamsToSign",
-									"value": false,
-									"type": "boolean"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [
@@ -261,49 +177,7 @@
 					],
 					"request": {
 						"auth": {
-							"type": "oauth1",
-							"oauth1": [
-								{
-									"key": "tokenSecret",
-									"value": "{{tokenSecret}}",
-									"type": "string"
-								},
-								{
-									"key": "token",
-									"value": "{{accessToken}}",
-									"type": "string"
-								},
-								{
-									"key": "consumerSecret",
-									"value": "{{consumerSecret}}",
-									"type": "string"
-								},
-								{
-									"key": "consumerKey",
-									"value": "{{consumerKey}}",
-									"type": "string"
-								},
-								{
-									"key": "addParamsToHeader",
-									"value": true,
-									"type": "boolean"
-								},
-								{
-									"key": "signatureMethod",
-									"value": "HMAC-SHA1",
-									"type": "string"
-								},
-								{
-									"key": "version",
-									"value": "1.0",
-									"type": "string"
-								},
-								{
-									"key": "addEmptyParamsToSign",
-									"value": false,
-									"type": "boolean"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [
