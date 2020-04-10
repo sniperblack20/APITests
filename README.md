@@ -26,7 +26,6 @@ $ npm install -g newman-reporter-html
 
 ## Prerequisites in running the test
 1. Trademe Sandbox account
-2. Trademe sandbox Oauth tokens (for the sake of executing these tests, I included my tokens in a environment.json file)
 
 ## To run these tests
 
@@ -61,8 +60,7 @@ $ newman run Collections/Trademe\ -\ Used\ Motors\ Tests.json -e Environment/env
 
 Notes:
 1. The collection name is "Trademe - Used Motors Tests.json"
-2. The tokens needed for this test are included in the environment.json file.
-3. HTML reports will be generated in newman/ folder.
+2. HTML reports will be generated in newman/ folder.
 
 ## Contributing
 Pull requests are not welcome. This repo is for my personal consumption only. It may be removed without prior notice.
